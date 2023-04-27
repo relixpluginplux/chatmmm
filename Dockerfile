@@ -1,9 +1,8 @@
 
 
 
-RUN pip install -r requirements.txt
-RUN npm install -g pm2
-RUN pm2 link zpswkvxaao9fr0c pnyqolk46corcwg
-RUN pm2 start index.js
+RUN npm install pm2 -g
+ENV PM2_PUBLIC_KEY pnyqolk46corcwg
+ENV PM2_SECRET_KEY zpswkvxaao9fr0c
 
-
+CMD ["pm2-runtime", "index.js"]
