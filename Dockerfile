@@ -1,4 +1,5 @@
-FROM docker build -t main . --target build
+
+FROM <main>:<tag>
 
 
 
