@@ -1,5 +1,5 @@
 
-FROM <main>:<tag>
+
 FROM node:14
 
 
