@@ -1,6 +1,6 @@
-FROM main
+FROM docker build -t main . --target build
 
-docker build -t main . --target build
+
 
 
 
