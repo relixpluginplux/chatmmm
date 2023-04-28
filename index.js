@@ -65,7 +65,7 @@ const handleText = async (msg) => {
 };
 
 const handleImageCommand = async (chatId, promptText) => {
-    const waitMessage = await bot.sendMessage(chatId, '👀 Please wait...');
+    const waitMessage = await bot.sendMessage(chatId, 'Voy👾...');
 
     if (promptText === '') {
         bot.sendMessage(chatId, 'If you want to get an image, enter your query after /img');
@@ -91,7 +91,7 @@ const handleImageCommand = async (chatId, promptText) => {
 };
 
 const handleTextQuery = async (chatId, userMessage) => {
-    const waitMessage = await bot.sendMessage(chatId, '👀 Please wait...');
+    const waitMessage = await bot.sendMessage(chatId, 'Voy👾');
 
     try {
         const completion = await gpt.createChatCompletion({
