@@ -50,8 +50,8 @@ const handleText = async (msg) => {
     const userMessage = msg.text;
 
     if (userMessage === '/start') {
-        await bot.sendMessage(chatId, `Hello, ${msg.from.first_name}!`);
-        await bot.sendMessage(chatId, `This bot uses GPT-Turbo 3.5 and Dall-E models to generate responses to your query.`);
+        await bot.sendMessage(chatId, `✨Holaa!!, ${msg.from.first_name}!✨`);
+        await bot.sendMessage(chatId, `Este bot utiliza modelos GPT-Turbo 3.5 y Dall-E para generar respuestas a su consulta.`);
         console.log(`Request ${requestCount} completed!`);
         return;
     }
@@ -84,7 +84,7 @@ const handleImageCommand = async (chatId, promptText) => {
         await bot.deleteMessage(chatId, waitMessage.message_id);
         console.log(`Request ${requestCount}: Completed!`);
     } catch (error) {
-        await bot.sendMessage(chatId, 'Try another query 😊');
+        await bot.sendMessage(chatId, 'Prueba con otra consulta 😊');
         await bot.deleteMessage(chatId, waitMessage.message_id);
         console.log(`Request ${requestCount}: Not completed!`);
     }
@@ -103,7 +103,7 @@ const handleTextQuery = async (chatId, userMessage) => {
         await bot.deleteMessage(chatId, waitMessage.message_id);
         console.log(`Request ${requestCount}: Completed!`);
     } catch (error) {
-        await bot.sendMessage(chatId, 'Try another query 😊');
+        await bot.sendMessage(chatId, 'Prueba con otra consulta 😊');
         await bot.deleteMessage(chatId, waitMessage.message_id);
         console.log(`Request ${requestCount}: Not completed!`);
     }
