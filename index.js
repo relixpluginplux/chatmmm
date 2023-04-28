@@ -30,6 +30,17 @@ const bot = new TelegramBot(process.env.API_KEY_BOT, { polling: true });
 // Counter for incoming requests
 let requestCount = 0;
 
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Hello, world!');
+});
+
+server.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});
+
 const handleText = async (msg) => {
     requestCount++;
     console.log(`Request ${requestCount}: ${msg.text}`);
