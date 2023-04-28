@@ -1,14 +1,19 @@
 
-
 FROM node:14
 
-RUN git clone https://github.com/Danielperfull-00/telegram-turbo-gpt
-RUN npm i
-RUN npm install pm2 -g
-ENV PM2_PUBLIC_KEY pnyqolk46corcwg
-ENV PM2_SECRET_KEY zpswkvxaao9fr0c
+# Establecer directorio de trabajo
+WORKDIR /index.js
 
+# Copiar archivos de aplicación al contenedor
+COPY package.json .
+COPY package-lock.json .
+COPY . .
+
+# Instalar dependencias
+RUN npm install
+
+# Exponer el puerto 3000
 EXPOSE 3000
 
-CMD ["pm2-runtime", "index.js"]
-
+# Comando para iniciar la aplicación
+CMD [ "npm", "start" ]
