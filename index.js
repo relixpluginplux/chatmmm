@@ -61,12 +61,7 @@ const handleText = async (msg) => {
         return;
     }
     
-    if (userMessage === '/help') {
-        await bot.sendMessage(chatId, `✨Holaa!!, ${msg.from.first_name}!✨`);
-        await bot.sendMessage(chatId, `Este bot utiliza modelos GPT-Turbo 3.5 y Dall-E para generar respuestas a su consulta.`);
-        console.log(`Request ${requestCount} completed!`);
-        return;
-    }
+  
 
     await handleTextQuery(chatId, userMessage);
 };
@@ -75,7 +70,7 @@ const handleImageCommand = async (chatId, promptText) => {
     const waitMessage = await bot.sendMessage(chatId, 'Voy👾...');
 
     if (promptText === '') {
-        bot.sendMessage(chatId, 'If you want to get an image, enter your query after /img');
+        bot.sendMessage(chatId, 'Si desea obtener una imagen, ingrese su consulta después /img');
         bot.deleteMessage(chatId, waitMessage.message_id);
         return;
     }
