@@ -55,6 +55,15 @@ const handleText = async (msg) => {
         console.log(`Request ${requestCount} completed!`);
         return;
     }
+    
+bot.on('message', (msg) => {
+  const chatId = msg.chat.id;
+  const messageText = msg.text;
+
+  if (messageText === '/ayuda') {
+    bot.sendMessage(chatId, 'Estos son los comandos disponibles:\n/start - Saluda al bot\n/img <texto> - Genera una imagen basada en el texto\n/ayuda - Muestra esta lista de comandos');
+  }
+});
 
     if (userMessage.startsWith('/img')) {
         await handleImageCommand(chatId, userMessage.slice(5));
