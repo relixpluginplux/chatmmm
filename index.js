@@ -41,6 +41,7 @@ server.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
 
+
 const handleText = async (msg) => {
     requestCount++;
     console.log(`Request ${requestCount}: ${msg.text}`);
