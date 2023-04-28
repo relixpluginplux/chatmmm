@@ -60,6 +60,13 @@ const handleText = async (msg) => {
         await handleImageCommand(chatId, userMessage.slice(5));
         return;
     }
+    
+    if (userMessage === '/help') {
+        await bot.sendMessage(chatId, `✨Holaa!!, ${msg.from.first_name}!✨`);
+        await bot.sendMessage(chatId, `Este bot utiliza modelos GPT-Turbo 3.5 y Dall-E para generar respuestas a su consulta.`);
+        console.log(`Request ${requestCount} completed!`);
+        return;
+    }
 
     await handleTextQuery(chatId, userMessage);
 };
