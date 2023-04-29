@@ -76,7 +76,7 @@ bot.on('message', (msg) => {
 };
 
 const handleImageCommand = async (chatId, promptText) => {
-    const waitMessage = await bot.sendMessage(chatId, 'Un segundo ${msg.from.first_name}! estoy en ello...💡');
+    const waitMessage = await bot.sendMessage(chatId, 'Un segundo estoy en ello...💡');
 
     if (promptText === '') {
         bot.sendMessage(chatId, 'Si desea obtener una imagen, ingrese su consulta después /img');
