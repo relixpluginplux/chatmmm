@@ -50,8 +50,8 @@ const handleText = async (msg) => {
     const userMessage = msg.text;
 
     if (userMessage === '/start') {
-        await bot.sendMessage(chatId, `✨Holaa!!, ${msg.from.first_name}!✨`);
-        await bot.sendMessage(chatId, `Este bot utiliza modelos GPT-Turbo 3.5 y Dall-E para generar respuestas a su consulta.`);
+        await bot.sendMessage(chatId, `✨Hola!, ${msg.from.first_name}!✨`);
+        await bot.sendMessage(chatId, `Soy Robotina GPT tu asistente personal`);
         console.log(`Request ${requestCount} completed!`);
         return;
     }
@@ -79,7 +79,7 @@ const handleImageCommand = async (chatId, promptText) => {
     const waitMessage = await bot.sendMessage(chatId, 'Un segundo estoy en ello...💡');
 
     if (promptText === '') {
-        bot.sendMessage(chatId, 'Si desea obtener una imagen, ingrese su consulta después /img');
+        bot.sendMessage(chatId, 'Si desea obtener una imagen, ingrese la descripción después /img 👉🏻Ejemplo /img robot');
         bot.deleteMessage(chatId, waitMessage.message_id);
         return;
     }
@@ -102,7 +102,7 @@ const handleImageCommand = async (chatId, promptText) => {
 };
 
 const handleTextQuery = async (chatId, userMessage) => {
-    const waitMessage = await bot.sendMessage(chatId, 'Procesado👾');
+    const waitMessage = await bot.sendMessage(chatId, 'Escribiendo...');
 
     try {
         const completion = await gpt.createChatCompletion({
@@ -114,7 +114,7 @@ const handleTextQuery = async (chatId, userMessage) => {
         await bot.deleteMessage(chatId, waitMessage.message_id);
         console.log(`Request ${requestCount}: Completed!`);
     } catch (error) {
-        await bot.sendMessage(chatId, 'Prueba con otra consulta 😊');
+        await bot.sendMessage(chatId, 'Prueba con otra palabra 😊');
         await bot.deleteMessage(chatId, waitMessage.message_id);
         console.log(`Request ${requestCount}: Not completed!`);
     }
