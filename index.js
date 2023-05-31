@@ -51,7 +51,7 @@ const handleText = async (msg) => {
 
     if (userMessage === '/start') {
         await bot.sendMessage(chatId, `✨Hola!, ${msg.from.first_name}!✨`);
-        await bot.sendMessage(chatId, `Soy Robotina GPT tu asistente personal`);
+        await bot.sendMessage(chatId, `💛Soy Robotina GPT tu asistente personal`);
         console.log(`Request ${requestCount} completed!`);
         return;
     }
@@ -95,7 +95,7 @@ const handleImageCommand = async (chatId, promptText) => {
         await bot.deleteMessage(chatId, waitMessage.message_id);
         console.log(`Request ${requestCount}: Completed!`);
     } catch (error) {
-        await bot.sendMessage(chatId, 'Prueba con otra consulta 😊');
+        await bot.sendMessage(chatId, 'Prueba con otra palabra 😊');
         await bot.deleteMessage(chatId, waitMessage.message_id);
         console.log(`Request ${requestCount}: Not completed!`);
     }
